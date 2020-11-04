@@ -1,0 +1,87 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<h2 class="title">
+        我的
+    </h2>
+</ion-header-bar>
+
+<ion-view>
+	<ion-content class="ionic-pseudo" style="background-color:#F8F8F8;">
+		<div class="list" style="margin-top:10px;">
+	        <a class="item item-avatar" ui-sref="mylib_info">
+	          <img src="img/person.png" style="border-radius:40px;">
+	          <h2 ng-bind="userInfo.userName"></h2>
+	          <p ng-bind="'证号：'+userInfo.userCode+'  ('+userInfo.sname+')'"></p>
+	          <i class="icon ion-chevron-right" style="position:absolute;top:20px;right:20px;"></i>
+	        </a>
+        </div>
+        
+		<div class="list">
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_mylend" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-bookmarks" style="color:#387EF5;"></i> 我的借阅
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.lendCount">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_myoverlned" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-bookmarks" style="color:#EF473A;"></i> 逾期图书
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.lendExCount">
+
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_preLend" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-calendar-outline" style="color:#387EF5;"></i> 预借图书
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.preLendCount">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_yueLend" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-grid" style="color:#387EF5;"></i> 预约委托
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.yueLendCount">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_myhistorylned" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-clock" style="color:#387EF5;"></i> 历史借阅
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.lendHisCount">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_mycollect"  style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-bookmark" style="color:#387EF5;"></i> 我的收藏
+				<span class="item-note" style="right:40px;" ng-bind="userInfo.myStoreCount">
+
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>		
+		</div>
+		
+		<div class="list">
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_mycard" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-barcode"  style="color:#387EF5;"></i> 电子借书证
+				<span class="item-note" style="right:40px;">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ui-sref="mylib_password" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-key"  style="color:#387EF5;"></i>修改密码
+				<span class="item-note" style="right:40px;">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			<a class="item item-icon-left item-icon-right" ng-click="logout()" style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-android-exit"  style="color:#387EF5;"></i> 注销
+				<span class="item-note" style="right:40px;">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

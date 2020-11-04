@@ -1,0 +1,30 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.mylib" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        我的信息
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list">
+		<a class="item item-icon-left" href="#">
+	                         姓名
+	        <span class="item-note" ng-bind="userInfo.userName">
+	        </span>
+	    </a>
+	    <a class="item item-icon-left" href="#">
+	                         借阅证号
+	        <span class="item-note" ng-bind="userInfo.userCode">
+	        </span>
+	    </a>
+	</div>
+	<div>
+		<img ng-src="{{qrPic}}" style="position:absolute;top:300px;left:50%;width:200px;height:200px;margin-top:-140px; margin-left:-100px;">
+	    <div style="position:absolute;top:300px;height:30px;width:100%;
+	    	line-height:30px;margin-top:60px;text-align:center;"
+	    	ng-bind="'借阅证：'+userInfo.userCode+ ' '+userInfo.userName"
+	    	>
+	    </div>
+	</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.home" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        忘记密码
+    </h2>
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list list-inset">
+		<div class="item item-input-inset">
+			<label class="item-input-wrapper" style="background:#FFFFFF;">
+				<input type="text" placeholder="手机号码" ng-model="userInfo.mphone">				
+			</label>
+			<button ng-click="sendCheckCode(userInfo.mphone)" ng-hide="userInfo.mphone=='' || !userInfo.mphone" class="button button-positive button-small" style="margin:5px;">发送验证码</button>
+		</div>
+			<label class="item item-input">
+				<input type="text" placeholder="验证码" ng-model="userInfo.checkcode">
+			</label>
+	</div>
+	<div class="list list-inset">
+			<label class="item" style="border: 0px;">
+				<div class="col"><button class="button button-positive button-block" ng-click="next()">下一步</button></div>			
+			</label>
+	</div>
+	</ion-content>
+</ion-view>

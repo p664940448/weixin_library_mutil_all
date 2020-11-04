@@ -1,0 +1,60 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.home" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+       立即注册
+    </h2>
+
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list list-inset">
+		    <div class="item item-input-inset">
+		    	<label class="item-input-wrapper" style="background:#FFFFFF;">
+					<input type="text" placeholder="手机号码" ng-model="userInfo.mphone">				    
+				</label>
+				<button ng-click="sendCheckCode(userInfo.mphone)" 
+					ng-hide="userInfo.mphone=='' || !userInfo.mphone" 
+					class="button button-positive button-small" 
+					style="margin:5px;">
+					发送验证码
+				</button>		    	
+		    </div>
+			
+			<label class="item item-input">
+				<input type="text" placeholder="姓名" ng-model="userInfo.userName">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="身份证" ng-model="userInfo.idcard">
+			</label>
+			<label class="item item-input">
+				<input type="password" placeholder="密码（至少6个字符）" ng-model="userInfo.password">
+			</label>
+			<label class="item item-input">
+				<input type="password" placeholder="再次输入密码" ng-model="userInfo.password1">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="验证码" ng-model="userInfo.checkcode">
+			</label>
+
+	</div>
+	
+	<div class="list list-inset">
+			<div>其它信息(可不填写)</div>
+			<label class="item item-input">
+				<input type="text" placeholder="邮件" ng-model="userInfo.email">
+			</label>
+			
+			<label class="item item-input">
+				<input type="text" placeholder="单位" ng-model="userInfo.com">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="住址" ng-model="userInfo.address">
+			</label>
+	</div>
+	<div class="list list-inset">
+			<label class="item" style="border: 0px;">
+			<button class="button button-positive button-block" ng-click="reg()">注册账户</button>
+			</label>
+	</div>
+	</ion-content>
+</ion-view>

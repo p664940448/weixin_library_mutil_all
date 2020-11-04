@@ -1,0 +1,26 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<a ui-sref="tab.setting" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        服务指南
+    </h2>
+</ion-header-bar>
+<ion-view>
+    <ion-content class="ionic-pseudo" style="background-color:#F8F8F8;">
+	<div class="list">
+			
+			<a class="item item-icon-left item-icon-right" 
+                    style="padding-left:45px;padding-right:45px;"
+                    ng-click="guid(item.kind)" ng-repeat="item in list"
+                    >
+				<i class="icon ion-ios-paperplane" style="color:#387EF5;"></i>{{item.kindname}}
+				<span class="item-note" style="right:40px;">
+					
+		        </span>
+				<i class="icon ion-chevron-right icon-right" style="font-size:16px;"></i>
+			</a>
+			
+			
+	
+		</div>
+    </ion-content>
+</ion-view>

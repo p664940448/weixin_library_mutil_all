@@ -1,0 +1,20 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<a class="button button-clear icon ion-chevron-left" ui-sref="tab.mylib"></a>
+	<h2 class="title">
+        我的预借
+    </h2>
+	
+</ion-header-bar>
+
+<ion-content>		
+		<ion-list>
+			<ion-item class="item-avatar" ng-repeat="book in bookList" ng-click="bookDetils(book.bookId,book.bid,book.state)">
+				<img ng-src="{{book.pic}}">				
+				<h2 ng-bind="book.bookName+'&nbsp;&nbsp;'+book.barid"></h2>
+				<p class="rj-list-p" ng-bind="'预约：'+book.lendDate+'&nbsp;&nbsp;&nbsp;&nbsp;截止：'+book.mustDate">
+
+				</p>				
+				<span class="rj-push-right" ng-bind="book.state"></span>				
+			</ion-item>			
+		</ion-list>
+</ion-content>

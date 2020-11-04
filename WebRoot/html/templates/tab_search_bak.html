@@ -1,0 +1,43 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<h2 class="title">
+        图书检索
+    </h2>
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" placeholder="关键字" ng-model="searchObj.keyword">
+			</label>			
+				<ion-radio  ng-value="'bookName'" ng-model="searchObj.kind" ng-change="itemChange('bookName')">
+					书名
+				</ion-radio>
+				<ion-radio  ng-value="'author'" ng-model="searchObj.kind" ng-change="itemChange('author')">
+					作者
+				</ion-radio>
+				<ion-radio  ng-value="'publisher'" ng-model="searchObj.kind" ng-change="itemChange('publisher')">
+					出版社
+				</ion-radio>
+				<ion-radio  ng-value="'isbn'" ng-model="searchObj.kind" ng-change="itemChange('isbn')">
+					ISBN
+				</ion-radio>
+				
+				
+				<label class="item item-input item-select">
+				    <div class="input-label">
+				      分馆
+				    </div>
+				    <select ng-model="searchObj.sid">
+				      <option value="">全部</option>
+				      <option  ng-value="sch.sid" ng-repeat="sch in schs">{{sch.sname}}</option>
+				    </select>
+				</label>
+				
+		</div>
+		<div class="list list-inset">
+			<label class="item" style="border: 0px;">
+			<button class="button button-positive button-block" ng-click="search()">检索</button>
+			</label>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.home" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        重设密码
+    </h2>
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list list-inset">
+			<label class="item item-input">
+				<input type="password" placeholder="输入密码(至少6位字母或者数字)" ng-model="userInfo.password">				
+			</label>
+			<label class="item item-input">
+				<input type="password" placeholder="再次输入密码" ng-model="userInfo.password1">
+			</label>
+	</div>
+	<div class="list list-inset">
+			<label class="item" style="border: 0px;">
+				<div class="col"><button class="button button-positive button-block" ng-click="finish()">完成</button></div>			
+			</label>
+	</div>
+	</ion-content>
+</ion-view>

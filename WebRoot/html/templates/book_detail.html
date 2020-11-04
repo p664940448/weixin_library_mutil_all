@@ -1,0 +1,45 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ng-click="goBack()" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        简介
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list">	
+		<a class="item item-thumbnail-left" href="#">
+			<img ng-src="{{bookInfo.pic}}">
+			<h2 ng-bind="bookInfo.bookName"></h2>
+			<p ng-bind="'作者：'+bookInfo.author"></p>
+			<p ng-bind="'出版社：'+bookInfo.publisher"></p>
+			<p ng-bind="'出版日期：'+bookInfo.pubDate"></p>
+			<p ng-bind="'单价：'+bookInfo.price"></p>
+			<p ng-bind="'藏馆：'+bookInfo.sname"></p>
+		</a>
+	</div>
+	<!--按分馆统计-->
+	
+	<div class="list">
+			
+			<a class="item item-icon-left item-icon-right" ng-repeat="map in libList"  style="padding-left:45px;padding-right:45px;">
+				<i class="icon ion-ios-book" style="color:#387EF5;"></i>{{map.sname}}
+				<p style="font-size:12px;">馆藏数：{{map.allshu}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可借数：<span style="color:#1BBB37">{{map.lendshu}}</span></p>
+				<span class="item-note" style="right:40px;">
+					
+		        </span>
+			</a>	
+	</div>
+	
+	<div class="row">
+		<div class="col col-66">
+			<button class="button button-positive button-block" ng-click="deal(bookInfo.bookId)">{{bookInfo.cmd}}</button>
+		</div>
+		<div class="col col-33">
+			<button class="button button-block" ng-click="myStore(bookInfo.bookId)">收藏</button>
+		</div>
+	</div>
+	<div style="padding: 10px;" ng-bind="bookInfo.note">
+		
+	</div>
+	</ion-content>
+</ion-view>

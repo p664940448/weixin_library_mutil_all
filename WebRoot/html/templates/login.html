@@ -1,0 +1,27 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.home" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        登录
+    </h2>
+    <a ui-sref="regUser" class="button button-clear icon ion-person">注册</a>
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" placeholder="借书证号" ng-model="userInfo.userCode">
+			</label>
+			<label class="item item-input">
+				<input type="password" placeholder="密码" ng-model="userInfo.userPwd">
+			</label>
+	</div>
+	<div class="list">
+
+			<div class="row">
+				<div class="col"><button class="button button-positive button-block" ng-click="login()">登录</button></div>
+				<div class="col"><button class="button button-assertive button-block" ng-click="forgetPwd()">忘记密码</button></div>
+			</div>			
+
+	</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>应用下载</title>
+<style type="text/css">
+<!--
+body, td, th {
+	font-family: 微软雅黑;
+	font-size: 14px;
+}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.STYLE1 {
+	font-size: 24px
+}
+
+.download_btn {
+	display: block;
+	width: 168px;
+	height: 28px;
+	padding-top: 10px;
+	border-radius: 4px;
+	background: #1a85ff;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+-->
+</style>
+</head>
+
+<body onload="init()">
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+
+		<tr>
+			<td height="80"><span class="STYLE1">移动图书馆 客户端下载</span></td>
+		</tr>
+	</table>
+	<div style="height: 1px; background-color: #DDDDDD; width: 100%"></div>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0" style="margin-top: 25px;">
+		<tr>
+			<td><img src="img/ios_logo.png"></td>
+			<td><img src="img/android_logo.png"></td>
+			<td><span id="img"></span></td>
+		</tr>
+		<tr>
+			<td valign="top" width="333">
+				<div style="width: 250px;">
+					<div style="font-size: 26px;">ios</div>
+					<div>支持iOS 7.0及以上版本(请从手机端下载)</div>
+					<div>iOS9.0以上版本需要手动信任企业证书才能正常使用 请在"设置>通用>设备管理"选择并信任相应的企业级证书</div>
+					<div style="padding-left: auto; padding-right: auto">
+						<a class="download_btn" style="margin-top: 20px;" href="ios.html">ios客户端下载</a>
+					</div>
+				</div>
+			</td>
+
+			<td valign="top" width="333">
+				<div style="width: 250px;">
+					<div style="font-size: 26px;">Android</div>
+					<div>支持Android 4.0及以上版本</div>
+					<div style="padding-left: auto; padding-right: auto">
+						<a class="download_btn" href="app.apk" style="margin-top: 20px;">Android客户端下载</a>
+					</div>
+				</div>
+			</td>
+			<td width="333">
+				<div style="width: 250px;">
+					<div style="font-size: 26px;">手机拍摄二维码</div>
+					<div>
+						用手机二维码扫描软件拍摄左侧二维码， 或使用手机浏览器访问 <span id="purl"></span> 可直接下载App。
+					</div>
+				</div>
+
+			</td>
+		</tr>
+	</table>
+	<script>
+		function init() {
+			var url = "http://" + window.location.host + "/libraryServer/html5.html";
+			var img = document.getElementById("img");
+			var picUrl= "qr.jsp?kind=qr&p="+(new Date().getTime())+"&content=" + url;
+			img.innerHTML="<img src='"+picUrl+"'>";
+			
+			var purl = document.getElementById("purl");
+			purl.innerHTML = "<a href='"+url+"'>" + url + "</a>";
+		}
+
+
+	</script>
+</body>
+</html>

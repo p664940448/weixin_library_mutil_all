@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>app下载</title>
+</head>
+<body>
+
+</body>
+<script>
+function init(){
+	 var u = navigator.userAgent, app = navigator.appVersion;
+	 var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+	 var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	 if (isAndroid) {
+	     window.location.href = 'android.html';
+	 }else if(isIOS) {
+	     window.location.href = 'ios.html';
+	 }else{
+		 window.location.href="android.html";
+	 }	
+	 
+	 
+}
+window.onload=init;
+</script>
+</html>

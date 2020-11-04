@@ -1,0 +1,17 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.mylib" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        我的电子借书证
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div>
+		<img ng-src="{{qrPic}}" style="position:absolute;top:200px;left:50%;width:200px;height:200px;margin-top:-140px; margin-left:-100px;">
+	    <div style="position:absolute;top:200px;height:30px;width:100%;
+	    	line-height:30px;margin-top:60px;text-align:center;"
+	    	ng-bind="'借阅证：'+userInfo.userCode+ ' '+userInfo.userName"
+	    	></div>
+	</div>
+	</ion-content>
+</ion-view>

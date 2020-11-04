@@ -1,0 +1,20 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="tab.setting" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        通知
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list">
+		<a class="item item-icon-left" ng-click="noticeDetail(item.id)" ng-repeat="item in notices">
+			<i class="icon ion-ios-chatbubble" style="font-size:20px;color:#387EF5"></i>
+	         {{item.title}}
+	        <span class="item-note" ng-bind="item.createdate.substr(0,10)">
+	            
+	        </span>
+	    </a>
+
+	</div>
+	</ion-content>
+</ion-view>

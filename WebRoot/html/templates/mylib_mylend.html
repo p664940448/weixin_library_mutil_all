@@ -1,0 +1,24 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<a class="button button-clear icon ion-chevron-left" ui-sref="tab.mylib"></a>
+	<h2 class="title">
+        我的借阅
+    </h2>
+	
+</ion-header-bar>
+
+<ion-content>		
+		<ion-list>
+			<ion-item class="item-avatar" ng-repeat="book in bookList" ng-click="bookDetils(book.bookId)">
+				<img ng-src="{{book.pic}}">				
+				<h2 ng-bind="book.bookName+'&nbsp;&nbsp;'+book.barid"></h2>
+				<p class="rj-list-p" ng-bind="'借阅：'+book.lendDate+'&nbsp;&nbsp;&nbsp;&nbsp;归还：'+book.mustDate">
+
+				</p>				
+				<span ng-if="book.state=='未到期'" class="item-note" style="right:40px;" ng-bind="book.state"></span>
+				<span ng-if="book.state=='已续借|未到期' " class="item-note" style="right:40px;" ng-bind="book.state"></span>
+				<span ng-if="book.state=='逾期' " class="item-note" style="right:40px;"><font color="red">逾期</font></span>
+				<span ng-if="book.state=='已续借|逾期' " class="item-note" style="right:40px;">已续借|<font color="red">逾期</font></span>
+				<button ng-show="(book.state=='未到期' || book.state=='逾期') && book.relend==null" class="button button-balanced  button-small" style="width:60px;" ng-click="relend(book.lend_no)"> 续 借 </button>
+			</ion-item>			
+		</ion-list>
+</ion-content>

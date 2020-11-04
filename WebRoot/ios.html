@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<title>APP下载</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 微软雅黑;
+	font-size: 14px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {font-size: 24px}
+.download_btn{
+
+    display: block;
+    width: 168px;
+    height: 28px;
+    padding-top: 10px;
+    border-radius: 4px;
+    background: #1a85ff;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+
+}
+a:link {
+   text-decoration:none;
+}
+a:visited {
+	text-decoration:none;
+}
+a:hover{
+   text-decoration:none;
+}
+a:active {
+	text-decoration: none;
+}
+
+.popWindow { 
+	background-color:#4183A7; 
+	width: 100%; 
+	height: 100%; 
+	left: 0; 
+	top: 0; 
+	filter: alpha(opacity=90); 
+	opacity: 0.9; 
+	z-index: 10; 
+	position: absolute;
+	
+} 
+-->
+</style>
+</head>
+
+<body>
+<div class="popWindow" style="display:none" id="pop">
+<table width="100%" style="margin-top:100px;color:#FFFFFF;">
+   <tr>
+      <td height="40" align="center" style="font-size:20px;">1.点击右上角“...”,打开菜单</td>
+   </tr>
+   <tr>
+      <td hright="40" align="center" style="font-size:20px;">2.选择“safari”浏览器打开</td>
+   </tr>
+</table>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="80" align="center"><span class="STYLE1">移动图书馆</span></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="img/phone.png" width="175" height="240"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="img/ios_logo.png" width="63" height="77"></td>
+  </tr>
+  <tr>
+     <td height="45" align="center">
+     <a  class="download_btn" id="ios" onClick="installIOS()">ios客户端下载</a>
+     <span id="installingIOS" style="display:none">正在安装，请按 Home 键在桌面查看</span>
+     </td>
+  </tr>
+  <tr>
+     <td height="35" align="center" style="color:#BBBBBB">
+     支持iOS 7.0及以上版本。
+iOS 9.0以上版本需要手动信任企业证书才能正常使用。
+请在"设置>通用>设备管理"选择并信任相应的企业级证书
+     
+     </td>
+  </tr>
+</table>
+<script>
+function init(){
+   var ios=document.getElementById("ios");   
+   if(isIos()){
+	 //plist文件地址，必须是https协议
+	 //其中：https://bjshansi.vicp.net/tools/app-bjss.plist按实际情况修改
+	 ios_url="itms-services://?action=download-manifest&url=https://bjshansi.vicp.net/tools/app-bjss.plist";
+	 ios.href=ios_url;
+   }else{
+	   ios.innerHTML="请在ios系统下打开本页面";
+   }
+   
+   //微信浏览器
+   if(isWeiXin()){
+	   var pop=document.getElementById("pop"); 
+	   pop.style.display="block";
+   }
+}
+
+window.onload=init();
+
+//安装
+function installIOS(){
+  window.setTimeout(function(){
+    document.getElementById("ios").style.display="none";
+    document.getElementById("installingIOS").style.display="block";
+  },3000)
+}
+
+//判断是否ios系统
+function isIos(){
+	var u = navigator.userAgent;
+	var ios=  !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	return ios;
+}
+
+//浏览器判断
+var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            trident: u.indexOf('Trident') > -1, //IE内核
+            presto: u.indexOf('Presto') > -1, //opera内核
+            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+            iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf('iPad') > -1, //是否iPad
+            webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+            weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+            qq: u.match(/\sQQ/i) == " qq" //是否QQ
+        };
+    }(),
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+//微信浏览器判断
+function isWeiXin(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
+</body>
+</html>

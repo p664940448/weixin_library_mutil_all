@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<title>APP下载</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: 微软雅黑;
+	font-size: 14px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {font-size: 24px}
+.download_btn{
+
+    display: block;
+    width: 168px;
+    height: 28px;
+    padding-top: 10px;
+    border-radius: 4px;
+    background: #1a85ff;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+
+}
+a:link {
+   text-decoration:none;
+}
+a:visited {
+	text-decoration:none;
+}
+a:hover{
+   text-decoration:none;
+}
+a:active {
+	text-decoration: none;
+}
+
+.popWindow { 
+	background-color:#4183A7; 
+	width: 100%; 
+	height: 100%; 
+	left: 0; 
+	top: 0; 
+	filter: alpha(opacity=90); 
+	opacity: 0.9; 
+	z-index: 10; 
+	position: absolute;
+	
+} 
+-->
+</style>
+</head>
+
+<body onload="init()">
+<div class="popWindow" style="display:none" id="pop">
+<table width="100%" style="margin-top:100px;color:#FFFFFF;">
+   <tr>
+      <td height="40" align="center" style="font-size:20px;">1.点击右上角,打开菜单</td>
+   </tr>
+   <tr>
+      <td hright="40" align="center" style="font-size:20px;">2.选择"在浏览器中"打开</td>
+   </tr>
+</table>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="80" align="center"><span class="STYLE1">移动图书馆</span></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="img/phone.png" width="175" height="240"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="img/android_logo.png" width="71" height="84"></td>
+  </tr>
+  <tr>
+     <td height="45" align="center">
+     <a href="app.apk" class="download_btn">Android客户端下载</a>     </td>
+  </tr>
+  <tr>
+     <td height="35" align="center">
+     支持Android4.0以上版本     </td>
+  </tr>
+</table>
+</body>
+<script>
+function init(){
+	if(isWeiXin()){
+		var pop=document.getElementById("pop"); 
+		pop.style.display="block";
+	}
+}
+
+//微信浏览器判断
+function isWeiXin(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
+</html>

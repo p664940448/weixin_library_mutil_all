@@ -1,0 +1,59 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<h2 class="title">
+        图书检索
+    </h2>
+    <button ng-click="showAllBook()" class="button button-small button-light">全部图书</button>
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+		<div class="list list-inset">
+		    <label class="item item-input item-select">
+			    <div class="input-label">
+			     藏馆
+			    </div>
+			    <select ng-model="searchObj.sid">
+			      <option value="">全部</option>
+			      <option  ng-value="sch.sid" ng-repeat="sch in schs">{{sch.sname}}</option>
+			    </select>
+			</label>
+		    <label class="item item-input">
+			    <span class="input-label">题名</span>
+			    <input type="text" ng-model="searchObj.title">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">作者</span>
+			    <input type="text" ng-model="searchObj.dutyer">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">分类号</span>
+			    <input type="text" ng-model="searchObj.kind">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">ISBN</span>
+			    <input type="text" ng-model="searchObj.isbn">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">出版社</span>
+			    <input type="text" ng-model="searchObj.pub_man">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">出版时间</span>
+			    <input type="text" ng-model="searchObj.pub_date">
+			</label>
+			<label class="item item-input">
+			    <span class="input-label">摘要</span>
+			    <input type="text" ng-model="searchObj.pub_zhaiyao">
+			</label>
+
+				
+				
+				
+				
+		</div>
+		<div class="list list-inset">
+			<label class="item" style="border: 0px;">
+			<button class="button button-positive button-block" ng-click="search()">检索</button>
+			</label>
+		</div>
+	</ion-content>
+</ion-view>

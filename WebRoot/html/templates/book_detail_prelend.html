@@ -1,0 +1,28 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ng-click="returnSearch()" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        简介
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="list">	
+		<a class="item item-thumbnail-left" href="#">
+			<img ng-src="{{bookInfo.pic}}">
+			<h2 ng-bind="bookInfo.bookName"></h2>
+			<p ng-bind="'作者：'+bookInfo.author"></p>
+			<p ng-bind="'出版社：'+bookInfo.publisher"></p>
+			<p ng-bind="'出版日期：'+bookInfo.pubDate"></p>
+			<p ng-bind="'单价：'+bookInfo.price"></p>
+		</a>
+	</div>
+	<div class="row">
+		<div class="col">
+			<button class="button button-positive button-block" ng-show="bookInfo.state" ng-click="cancle(bookInfo.b_no,bookInfo.bookId)">{{bookInfo.cmd}}</button>
+		</div>
+	</div>
+	<div style="padding: 10px;" ng-bind="bookInfo.note">
+		
+	</div>
+	</ion-content>
+</ion-view>

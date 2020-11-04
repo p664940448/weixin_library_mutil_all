@@ -1,0 +1,28 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<a class="button button-clear icon ion-chevron-left" ui-sref="tab.search"></a>
+	<h2 class="title">
+        查询结果
+    </h2>
+	
+</ion-header-bar>
+
+<ion-content over-scroll="false" delegate-handle="mainScroll">		
+		<ion-list>
+			<ion-item class="item-avatar" ng-repeat="book in newBooks" ng-click="bookDetils(book.bookId)">
+				<img ng-src="{{book.pic}}">				
+				<h2 ng-bind="book.bookName"></h2>
+				<p class="rj-list-p" ng-bind="book.author+'&nbsp;&nbsp;'+book.publisher"></p>
+				<span class="rj-push-right" ng-bind="book.theDate"></span>				
+				<p class="rj-list-p" ng-bind="'馆藏:'+book.sname+'&nbsp;&nbsp;复本数:'+book.shu2+'&nbsp;&nbsp;可借数:'+book.shu1"></p>
+                <p class="rj-list-p" ng-bind="'索书号:'+book.frame"></p>
+			</ion-item>			
+		</ion-list>
+		<!--上拉刷新-->
+		<ion-infinite-scroll
+		    on-infinite="loadMore()"
+		    distance="10%"
+		    icon="ion-load-d"
+		    ng-if="hasmore"
+		    >
+		</ion-infinite-scroll>
+</ion-content>

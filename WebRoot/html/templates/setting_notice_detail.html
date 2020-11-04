@@ -1,0 +1,23 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <a ui-sref="setting_notice" class="button button-clear icon ion-android-arrow-back"></a>
+	<h2 class="title">
+        通知
+    </h2>	
+</ion-header-bar>
+<ion-view>
+	<ion-content>
+	<div class="row" >
+		<div class="col col-center" align="center" 
+			style="height:40px; line-height: 40px;" 
+			ng-bind="notice.title"
+			>
+			
+		</div>
+	</div>
+    <div class="row">
+    	<div class="col" style="font-size:12px;" ng-bind-html="notice.content">
+    	
+    	</div>
+    </div>
+	</ion-content>
+</ion-view>

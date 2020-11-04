@@ -1,0 +1,35 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<h2 class="title">
+        移动图书馆
+    </h2>
+	<a href="#" class="button button-clear  icon ion-android-search" ng-click="search()"></a>
+</ion-header-bar>
+  <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
+    <div class="tabs" style="border-bottom-width:0px;">
+      <a class="tab-item" ng-click="getNewBooks()" ng-class="{'tab\-item\-active':tab=='new'}">
+           最新图书
+      </a>
+      <a class="tab-item" ng-click="getTuijianBooks()" ng-class="{'tab\-item\-active':tab=='tuijian'}">
+           推荐图书
+      </a>
+      <a class="tab-item" ng-click="getHotBooks()" ng-class="{'tab\-item\-active':tab=='hot'}">
+           热门图书
+      </a>
+    </div>
+  </div>	
+
+<ion-view>
+	<ion-content style="top:88px;">		
+		<div  ng-click="adDetail(ad.adId)">
+			<img ng-src="{{ad.pic}}" height="100" width="100%">
+		</div>
+		<ion-list>
+			<ion-item class="item-avatar" ng-repeat="book in newBooks" ng-click="bookDetils(book.bookId)">
+				<img ng-src="{{book.pic}}">				
+				<h2 ng-bind="book.bookName"></h2>
+				<p class="rj-list-p" ng-bind="book.author+'&nbsp;&nbsp;'+book.publisher"></p>
+				<span class="rj-push-right" ng-bind="book.theDate"></span>
+			</ion-item>			
+		</ion-list>
+	</ion-content>
+</ion-view>
